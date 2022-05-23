@@ -1,1 +1,1 @@
-# -music-visualization
+# music-visualization
