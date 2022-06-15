@@ -32,4 +32,3 @@ class DataRetrieval:
     def IsPlaying(self):
         self.devices = self.spotifyToken._get("me/player", market=None, additional_types=None)
         return self.devices["is_playing"]
-

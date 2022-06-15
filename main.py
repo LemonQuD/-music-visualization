@@ -24,9 +24,9 @@ auth = Authenticator()
 spotifyToken = auth.GetSpotifyToken()
 
 
-# Get current user
-user = auth.GetUser()
-write_to_json(user, "source/current_user")
+# # Get current user
+# user = auth.GetUser()
+# write_to_json(user, "source/current_user")
 
 # Data Retrieval
 dataRetrieval = DataRetrieval(spotifyToken)
@@ -34,19 +34,17 @@ dataRetrieval = DataRetrieval(spotifyToken)
 # Retrieve currently playing song
 currently_playing_song = dataRetrieval.GetCurrentlyPlayingSong()
 
-# Save the currently playing song data into a JSON file
-write_to_json(currently_playing_song, "source/currently_playing_song")
-
-# pprint(currently_playing_song["item"]["uri"])
+# # Save the currently playing song data into a JSON file
+# write_to_json(currently_playing_song, "source/currently_playing_song")
 
 # Retrive song's audio analysis
 analysis = dataRetrieval.GetSongAnalysis()
 
-# Save the currently playing song's audio analysis into a JSON file
-write_to_json(analysis, "source/analysis")
+# # Save the currently playing song's audio analysis into a JSON file
+# write_to_json(analysis, "source/analysis")
 
-# Get curently playing segment
-write_to_json(analysis["segments"], "source/segments")
+# # Get curently playing segment
+# write_to_json(analysis["segments"], "source/segments")
 
 dataProcessing = DataProcessing()
 
@@ -57,12 +55,8 @@ while True:
     currently_playing_song = dataRetrieval.GetCurrentlyPlayingSong()
     current_song_pitches = dataRetrieval.GetPitches()
     temp = dataProcessing.ReturnRGB(current_song_pitches)
-    emulator.Animate(temp[0], temp[1], temp[2], temp[3])
-    print(type(dataRetrieval.IsPlaying()))
-    print(dataRetrieval.IsPlaying())
+    emulator.Animate(temp[0], temp[1])
     if dataRetrieval.IsPlaying() == False:
         while True:
             if dataRetrieval.IsPlaying() == True:
                 break
-
-

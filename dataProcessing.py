@@ -7,7 +7,7 @@ class DataProcessing:
         self.pitches = pitches
         if self.pitches == None:
             self.pitches = [0] * 12
-        bass = int(sum(self.pitches[:4]) * 1000)
+        bass = int(sum(self.pitches[:4]) * 700)
         midrange = int(sum(self.pitches[4:8:]) * 1000)
         treble = int(sum(self.pitches[-4:]) * 1000)
 
@@ -21,4 +21,4 @@ class DataProcessing:
             redValue = 255
             blueValue = 255
 
-        return redValue, blueValue, 0, 1
+        return redValue, blueValue

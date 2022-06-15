@@ -13,4 +13,5 @@ class Authenticator:
         return self.sp
 
     def GetUser(self):
+
         return self.sp.current_user()
